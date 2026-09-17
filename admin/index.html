@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tradx Admin Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 230px;
+            height: 100vh;
+            background: #111827;
+            color: white;
+            padding: 25px 15px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            padding-left: 10px;
+        }
+
+        .nav a {
+            display: block;
+            color: #d1d5db;
+            text-decoration: none;
+            padding: 14px 12px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+        }
+
+        .nav a:hover {
+            background: #1f2937;
+            color: white;
+        }
+
+        .main {
+            margin-left: 230px;
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+        }
+
+        .admin-name {
+            background: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #6b7280;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .section {
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                width: 70px;
+            }
+
+            .logo {
+                font-size: 0;
+            }
+
+            .logo::after {
+                content: "T";
+                font-size: 24px;
+            }
+
+            .nav a {
+                font-size: 0;
+                text-align: center;
+            }
+
+            .nav a::first-letter {
+                font-size: 20px;
+            }
+
+            .main {
+                margin-left: 70px;
+                padding: 20px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                display: block;
+            }
+
+            .admin-name {
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            TRADX
+        </div>
+
+        <nav class="nav">
+            <a href="#">🏠 Dashboard</a>
+            <a href="#">👥 Users</a>
+            <a href="#">📊 Analytics</a>
+            <a href="#">💰 Transactions</a>
+            <a href="#">📢 Marketing</a>
+            <a href="#">⚙️ Settings</a>
+            <a href="#">🚪 Logout</a>
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <div class="header">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome to the Tradx administration panel.</p>
+            </div>
+
+            <div class="admin-name">
+                👤 Administrator
+            </div>
+
+        </div>
+
+
+        <!-- Dashboard Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h3>Total Users</h3>
+                <p>0</p>
+            </div>
+
+            <div class="card">
+                <h3>Transactions</h3>
+                <p>0</p>
+            </div>
+
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>$0</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Users</h3>
+                <p>0</p>
+            </div>
+
+        </section>
+
+
+        <!-- Recent Activity -->
+        <section class="section">
+
+            <h2>Recent Activity</h2>
+
+            <p style="margin-top: 15px;">
+                No recent activity.
+            </p>
+
+        </section>
+
+    </main>
+
+</body>
+  </html>
