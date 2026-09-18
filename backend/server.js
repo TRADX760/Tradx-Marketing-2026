@@ -2,12 +2,16 @@ const express = require("express");
 const cors = require("cors");
 
 const db = require("./database");
+const accountsRouter = require("./accounts");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+
+// Accounts API
+app.use("/api/accounts", accountsRouter);
 
 // Test backend
 app.get("/", (req, res) => {
@@ -43,24 +47,6 @@ app.get("/api/users", (req, res) => {
             if (err) {
                 return res.status(500).json({
                     error: "Failed to retrieve users"
-                });
-            }
-
-            res.json(rows);
-        }
-    );
-});
-
-// Get accounts
-app.get("/api/accounts", (req, res) => {
-    db.all(
-        `SELECT id, user_id, account_number, balance, currency, status, created_at
-         FROM accounts`,
-        [],
-        (err, rows) => {
-            if (err) {
-                return res.status(500).json({
-                    error: "Failed to retrieve accounts"
                 });
             }
 
