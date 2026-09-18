@@ -51,6 +51,24 @@ app.get("/api/users", (req, res) => {
     );
 });
 
+// Get accounts
+app.get("/api/accounts", (req, res) => {
+    db.all(
+        `SELECT id, user_id, account_number, balance, currency, status, created_at
+         FROM accounts`,
+        [],
+        (err, rows) => {
+            if (err) {
+                return res.status(500).json({
+                    error: "Failed to retrieve accounts"
+                });
+            }
+
+            res.json(rows);
+        }
+    );
+});
+
 app.listen(PORT, () => {
     console.log(`TradX Backend running on port ${PORT}`);
 });
