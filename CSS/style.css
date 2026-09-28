@@ -71,3 +71,29 @@ footer {
   font-weight: 600;
 }
 
+
+@media (max-width: 600px) {
+  header {
+    padding: 20px 15px;
+  }
+
+  header a {
+    display: inline-block;
+    margin: 6px 5px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 26px;
+  }
+
+  .cta {
+    padding: 70px 20px;
+  }
+
+  .tool-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
