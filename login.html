@@ -153,17 +153,27 @@
   </div>
 
   <script>
-    function loginUser(event) {
-      event.preventDefault();
+function loginUser(event) {
+    event.preventDefault();
 
-      const email = document.getElementById("email").value;
-      const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-      if (email && password) {
-        alert("Login form submitted successfully.");
-      }
+    const user = JSON.parse(localStorage.getItem("tradxUser"));
+
+    if (!user) {
+        alert("No account found. Please create an account first.");
+        return;
     }
-  </script>
+
+    if (email === user.email && password === user.password) {
+        alert("Login successful!");
+        window.location.href = "index.html";
+    } else {
+        alert("Invalid email or password.");
+    }
+}
+</script>
 
 </body>
   </html>
