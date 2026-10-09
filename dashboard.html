@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard | TRADX</title>
-  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="CSS/style.css?v=3">
 </head>
 <body>
 
@@ -14,25 +14,192 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="trading-tools.html">Trading Tools</a>
-    <a href="dashboard.html">Admin Dashboard</a>
+    <a href="dashboard.html" class="active-nav">Admin Dashboard</a>
   </nav>
 
-  <div class="nav-buttons">
-    <a href="login.html" class="login-btn">Login</a>
-    <a href="register.html" class="signup-btn">Get Started</a>
+  <!-- User Profile Section -->
+  <div class="user-profile">
+    <div class="user-avatar">AD</div>
+    <div class="user-info">
+      <span class="user-name">Admin Account</span>
+      <span class="user-role">PRO TRADER</span>
+    </div>
   </div>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="hero-content">
+<main class="dashboard-container">
+  
+  <!-- Dashboard Title -->
+  <div class="dashboard-header">
+    <div>
       <div class="badge">• ADMIN DASHBOARD</div>
-      <h1>Account Overview</h1>
-      <p>Manage trades, balances, and account analytics.</p>
+      <h1>Account Overview & AI Insights</h1>
+      <p>Real-time trading performance, active margin, and AI-driven market analysis.</p>
+    </div>
+    <div class="dashboard-actions">
+      <a href="#" class="btn-primary">+ New Trade</a>
+      <a href="#" class="btn-secondary">Export Analytics</a>
+    </div>
+  </div>
+
+  <!-- Key Metrics Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-title">Total Account Balance</span>
+      <div class="stat-value">$124,580.00</div>
+      <span class="stat-change positive">+12.4% this month</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-title">Net Profit / Loss</span>
+      <div class="stat-value">+$18,340.50</div>
+      <span class="stat-change positive">+8.2% vs last week</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-title">Win Rate</span>
+      <div class="stat-value">68.5%</div>
+      <span class="stat-change neutral">42 total trades</span>
+    </div>
+
+    <div class="stat-card">
+      <span class="stat-title">Active Margin</span>
+      <div class="stat-value">$32,100.00</div>
+      <span class="stat-change info">5 Open Positions</span>
+    </div>
+  </div>
+
+  <!-- TRADX AI Trading Analysis Widget -->
+  <section class="ai-analysis-card">
+    <div class="ai-header">
+      <div class="ai-title">
+        <span class="ai-sparkle">✨</span>
+        <h2>TRADX AI Trading Analyst</h2>
+      </div>
+      <span class="badge-ai">AI Model v4.2 Active</span>
+    </div>
+    <p class="ai-subtitle">Select an asset to generate real-time AI technical analysis, confidence scores, and signal targets.</p>
+
+    <div class="ai-controls">
+      <select id="assetSelect" class="ai-select">
+        <option value="BTC/USD">BTC/USD — Bitcoin</option>
+        <option value="ETH/USD">ETH/USD — Ethereum</option>
+        <option value="EUR/USD">EUR/USD — Forex</option>
+        <option value="NVDA">NVDA — NVIDIA Corp</option>
+        <option value="TSLA">TSLA — Tesla Inc</option>
+      </select>
+      <button class="btn-ai" onclick="runAiAnalysis()">Run AI Analysis ⚡</button>
+    </div>
+
+    <!-- AI Results Output -->
+    <div class="ai-output-grid">
+      <div class="ai-box">
+        <span class="ai-box-title">Market Sentiment</span>
+        <div class="ai-box-value positive" id="aiSentiment">Bullish (84%)</div>
+        <p id="aiSentimentDesc">Strong upward momentum detected across 4-hour indicators.</p>
+      </div>
+
+      <div class="ai-box">
+        <span class="ai-box-title">Confidence Score</span>
+        <div class="ai-box-value info" id="aiConfidence">High (89/100)</div>
+        <p id="aiConfidenceDesc">Based on pattern breakout & high volume influx.</p>
+      </div>
+
+      <div class="ai-box">
+        <span class="ai-box-title">AI Signal Recommendation</span>
+        <div class="ai-box-value positive" id="aiAction">STRONG BUY</div>
+        <p id="aiActionDesc">Suggested Entry: Market | Target: +4.5% | Stop-Loss: -1.2%</p>
+      </div>
     </div>
   </section>
+
+  <!-- Active Trades Table -->
+  <div class="table-container">
+    <h2>Active & Recent Positions</h2>
+    <table class="trades-table">
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Type</th>
+          <th>Entry Price</th>
+          <th>Current Price</th>
+          <th>P&L</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>BTC/USD</strong></td>
+          <td><span class="type-tag buy">BUY</span></td>
+          <td>$64,250.00</td>
+          <td>$67,410.00</td>
+          <td class="positive">+$3,160.00</td>
+          <td><span class="status-badge open">Open</span></td>
+        </tr>
+        <tr>
+          <td><strong>ETH/USD</strong></td>
+          <td><span class="type-tag buy">BUY</span></td>
+          <td>$3,450.00</td>
+          <td>$3,580.00</td>
+          <td class="positive">+$130.00</td>
+          <td><span class="status-badge open">Open</span></td>
+        </tr>
+        <tr>
+          <td><strong>EUR/USD</strong></td>
+          <td><span class="type-tag sell">SELL</span></td>
+          <td>1.0890</td>
+          <td>1.0845</td>
+          <td class="positive">+$450.00</td>
+          <td><span class="status-badge closed">Closed</span></td>
+        </tr>
+        <tr>
+          <td><strong>NVDA</strong></td>
+          <td><span class="type-tag buy">BUY</span></td>
+          <td>$128.00</td>
+          <td>$134.50</td>
+          <td class="positive">+$650.00</td>
+          <td><span class="status-badge open">Open</span></td>
+        </tr>
+        <tr>
+          <td><strong>TSLA</strong></td>
+          <td><span class="type-tag sell">SELL</span></td>
+          <td>$228.00</td>
+          <td>$231.50</td>
+          <td class="negative">-$350.00</td>
+          <td><span class="status-badge closed">Closed</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </main>
 
+<!-- Interactive AI Simulation Script -->
+<script>
+  const aiData = {
+    "BTC/USD": { sentiment: "Bullish (84%)", sentClass: "positive", confidence: "High (89/100)", action: "STRONG BUY", actClass: "positive", desc: "Breakout above $66,000 resistance with heavy volume.", target: "Target: $71,200 | Stop: $64,800" },
+    "ETH/USD": { sentiment: "Bullish (76%)", sentClass: "positive", confidence: "Moderate (74/100)", action: "BUY / LONG", actClass: "positive", desc: "RSI shows bullish divergence on 1D timeframe.", target: "Target: $3,800 | Stop: $3,350" },
+    "EUR/USD": { sentiment: "Bearish (68%)", sentClass: "negative", confidence: "Moderate (71/100)", action: "SELL / SHORT", actClass: "negative", desc: "Rejection at key EMA level with macro dollar strength.", target: "Target: 1.0780 | Stop: 1.0895" },
+    "NVDA": { sentiment: "Very Bullish (91%)", sentClass: "positive", confidence: "Very High (95/100)", action: "STRONG BUY", actClass: "positive", desc: "Earnings beat expectations, tech momentum expanding.", target: "Target: $145.00 | Stop: $128.00" },
+    "TSLA": { sentiment: "Neutral / Bearish (52%)", sentClass: "negative", confidence: "Low (58/100)", action: "HOLD / WAIT", actClass: "neutral", desc: "Consolidating in tight range near major support level.", target: "Target: Neutral | Wait for breakout" }
+  };
+
+  function runAiAnalysis() {
+    const selected = document.getElementById("assetSelect").value;
+    const data = aiData[selected];
+
+    document.getElementById("aiSentiment").innerText = data.sentiment;
+    document.getElementById("aiSentiment").className = `ai-box-value ${data.sentClass}`;
+    
+    document.getElementById("aiConfidence").innerText = data.confidence;
+    
+    document.getElementById("aiAction").innerText = data.action;
+    document.getElementById("aiAction").className = `ai-box-value ${data.actClass}`;
+    
+    document.getElementById("aiSentimentDesc").innerText = data.desc;
+    document.getElementById("aiActionDesc").innerText = data.target;
+  }
+</script>
+
 </body>
-</html>
+  </html>
 
