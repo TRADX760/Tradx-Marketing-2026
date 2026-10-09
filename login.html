@@ -3,177 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TradX - Login</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #080b0f;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 420px;
-      background: #11161d;
-      padding: 35px 25px;
-      border-radius: 16px;
-      border: 1px solid #252d38;
-    }
-
-    .logo {
-      text-align: center;
-      font-size: 32px;
-      font-weight: bold;
-      color: #20d6a3;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #9aa4b2;
-      margin-bottom: 30px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 20px;
-      background: #080b0f;
-      border: 1px solid #303946;
-      border-radius: 8px;
-      color: white;
-      font-size: 16px;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: #20d6a3;
-    }
-
-    button {
-      width: 100%;
-      padding: 14px;
-      background: #20d6a3;
-      color: #07100d;
-      border: none;
-      border-radius: 8px;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    .register {
-      text-align: center;
-      margin-top: 25px;
-      color: #9aa4b2;
-    }
-
-    .register a {
-      color: #20d6a3;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .home {
-      display: block;
-      text-align: center;
-      margin-top: 18px;
-      color: #9aa4b2;
-      text-decoration: none;
-    }
-  </style>
+  <title>Login | TRADX</title>
+  <link rel="stylesheet" href="CSS/style.css?v=3">
 </head>
-
 <body>
 
-  <div class="container">
+<header class="navbar">
+  <a href="index.html" class="logo">TRADX<span>.</span></a>
 
-    <div class="logo">TradX</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="trading-tools.html">Trading Tools</a>
+    <a href="dashboard.html">Admin Dashboard</a>
+  </nav>
 
+  <div class="nav-buttons">
+    <a href="login.html" class="login-btn">Login</a>
+    <a href="register.html" class="signup-btn">Get Started</a>
+  </div>
+</header>
+
+<main class="auth-container">
+  <div class="auth-card">
+    <div class="badge">• TRADX AUTHENTICATION</div>
     <h1>Welcome Back</h1>
+    <p>Sign in to access your admin trading dashboard & AI market analyst.</p>
 
-    <p class="subtitle">Login to your TradX account</p>
+    <form class="auth-form" onsubmit="event.preventDefault(); window.location.href='dashboard.html';">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" class="form-input" placeholder="admin@tradx.com" required>
+      </div>
 
-    <form onsubmit="loginUser(event)">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-input" placeholder="••••••••" required>
+      </div>
 
-      <label for="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        placeholder="Enter your email"
-        required
-      >
+      <div class="form-row">
+        <label class="remember-me">
+          <input type="checkbox" checked> Remember me
+        </label>
+        <a href="#" class="forgot-link">Forgot Password?</a>
+      </div>
 
-      <label for="password">Password</label>
-      <input
-        type="password"
-        id="password"
-        placeholder="Enter your password"
-        required
-      >
-
-      <button type="submit">Login</button>
-
+      <button type="submit" class="btn-auth">Sign In to Dashboard →</button>
     </form>
 
-    <p class="register">
-      Don't have an account?
-      <a href="register.html">Create Account</a>
-    </p>
-
-    <a class="home" href="index.html">← Back to Home</a>
-
+    <div class="auth-footer">
+      Don't have an account? <a href="register.html">Get Started</a>
+    </div>
   </div>
-
-  <script>
-function loginUser(event) {
-    event.preventDefault();
-
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    const user = JSON.parse(localStorage.getItem("tradxUser"));
-
-    if (!user) {
-        alert("No account found. Please create an account first.");
-        return;
-    }
-
-    if (email === user.email && password === user.password) {
-        alert("Login successful!");
-        window.location.href = "index.html";
-    } else {
-        alert("Invalid email or password.");
-    }
-}
-</script>
+</main>
 
 </body>
-  </html>
+          </html>
+
