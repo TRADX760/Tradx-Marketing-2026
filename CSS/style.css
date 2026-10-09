@@ -1,4 +1,6 @@
-/* Reset & General Setup */
+/* ==========================================================================
+   1. RESET & BASE STYLES
+   ========================================================================== */
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +24,9 @@ a:active {
   color: inherit;
 }
 
-/* Header & Navbar Layout */
+/* ==========================================================================
+   2. HEADER & NAVIGATION BAR
+   ========================================================================== */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -63,7 +67,29 @@ nav a.active-nav {
   color: #a855f7 !important;
 }
 
-/* User Profile Badge */
+/* Nav Action Buttons & User Profile */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.login-btn, 
+.login-btn:visited {
+  color: #e5e7eb !important;
+  padding: 0.5rem 1rem;
+}
+
+.signup-btn, 
+.signup-btn:visited {
+  background: linear-gradient(135deg, #a855f7, #6366f1) !important;
+  color: #ffffff !important;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+}
+
 .user-profile {
   display: flex;
   align-items: center;
@@ -106,7 +132,76 @@ nav a.active-nav {
   letter-spacing: 0.5px;
 }
 
-/* Dashboard Container */
+/* ==========================================================================
+   3. HERO SECTION (HOMEPAGE)
+   ========================================================================== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1.5rem;
+  min-height: 70vh;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.badge {
+  display: inline-block;
+  color: #a855f7 !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+}
+
+.hero h1 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff !important;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: #9ca3af !important;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary, 
+.btn-primary:visited {
+  background: linear-gradient(135deg, #a855f7, #6366f1) !important;
+  color: #ffffff !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.btn-secondary, 
+.btn-secondary:visited {
+  background-color: #1f2937 !important;
+  color: #e5e7eb !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid #374151;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   4. ADMIN DASHBOARD & METRICS
+   ========================================================================== */
 .dashboard-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -138,38 +233,6 @@ nav a.active-nav {
   gap: 0.75rem;
 }
 
-/* Badge & Buttons */
-.badge {
-  display: inline-block;
-  color: #a855f7 !important;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin-bottom: 0.5rem;
-}
-
-.btn-primary, 
-.btn-primary:visited {
-  background: linear-gradient(135deg, #a855f7, #6366f1) !important;
-  color: #ffffff !important;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  display: inline-block;
-}
-
-.btn-secondary, 
-.btn-secondary:visited {
-  background-color: #1f2937 !important;
-  color: #e5e7eb !important;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  border: 1px solid #374151;
-  display: inline-block;
-}
-
-/* Key Metrics Cards */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -220,7 +283,9 @@ nav a.active-nav {
   color: #a855f7 !important;
 }
 
-/* AI Trading Analysis Widget */
+/* ==========================================================================
+   5. TRADX AI TRADING ANALYST WIDGET
+   ========================================================================== */
 .ai-analysis-card {
   background: linear-gradient(180deg, #131c31 0%, #111827 100%);
   border: 1px solid #3b82f640;
@@ -337,7 +402,9 @@ nav a.active-nav {
   font-size: 0.825rem;
 }
 
-/* Positions Data Table */
+/* ==========================================================================
+   6. DATA TABLES (ACTIVE TRADES)
+   ========================================================================== */
 .table-container {
   background-color: #111827;
   border: 1px solid #1f2937;
@@ -413,7 +480,125 @@ nav a.active-nav {
   color: #9ca3af;
 }
 
-/* Mobile Responsiveness */
+/* ==========================================================================
+   7. AUTHENTICATION (LOGIN & REGISTER) FORMS
+   ========================================================================== */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem 1.5rem;
+}
+
+.auth-card {
+  background-color: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.auth-card h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.auth-card p {
+  color: #9ca3af;
+  font-size: 0.9rem;
+  margin-bottom: 1.75rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+  font-weight: 600;
+}
+
+.form-input {
+  background-color: #0b0f19;
+  border: 1px solid #374151;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  border-color: #a855f7;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.forgot-link {
+  color: #a855f7 !important;
+}
+
+.btn-auth {
+  background: linear-gradient(135deg, #a855f7, #6366f1);
+  color: #ffffff;
+  border: none;
+  padding: 0.85rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: opacity 0.2s ease;
+}
+
+.btn-auth:hover {
+  opacity: 0.9;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.auth-footer a {
+  color: #a855f7 !important;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -434,5 +619,6 @@ nav a.active-nav {
     width: 100%;
   }
   }
+  
 
 
