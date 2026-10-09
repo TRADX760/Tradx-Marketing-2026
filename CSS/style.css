@@ -1,29 +1,28 @@
-/* General Page Styling */
+/* General Reset & Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 body {
-  background-color: #0b0f19;
-  color: #ffffff;
+  background-color: #0b0f19 !important;
+  color: #ffffff !important;
   line-height: 1.6;
 }
 
-/* Link Resets & Base Colors */
-a {
-  color: #a855f7;
-  text-decoration: none;
-  transition: all 0.2s ease;
+/* Force All Links & Visited Links to Override Browser Defaults */
+a, 
+a:link, 
+a:visited, 
+a:hover, 
+a:active {
+  text-decoration: none !important;
+  color: inherit;
 }
 
-a:hover {
-  color: #c084fc;
-}
-
-/* Header & Navigation Bar */
+/* Navigation Bar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -35,7 +34,8 @@ a:hover {
   gap: 1rem;
 }
 
-.logo {
+.logo, 
+.logo:visited {
   font-size: 1.6rem;
   font-weight: 800;
   color: #ffffff !important;
@@ -43,7 +43,7 @@ a:hover {
 }
 
 .logo span {
-  color: #a855f7;
+  color: #a855f7 !important;
 }
 
 nav {
@@ -51,7 +51,8 @@ nav {
   gap: 1.5rem;
 }
 
-nav a {
+nav a, 
+nav a:visited {
   color: #e5e7eb !important;
   font-weight: 500;
   font-size: 1rem;
@@ -68,21 +69,20 @@ nav a:hover {
   gap: 1rem;
 }
 
-.login-btn {
+.login-btn, 
+.login-btn:visited {
   color: #e5e7eb !important;
   padding: 0.5rem 1rem;
 }
 
-.signup-btn {
-  background: linear-gradient(135deg, #a855f7, #6366f1);
+.signup-btn, 
+.signup-btn:visited {
+  background: linear-gradient(135deg, #a855f7, #6366f1) !important;
   color: #ffffff !important;
   padding: 0.6rem 1.25rem;
   border-radius: 8px;
   font-weight: 600;
-}
-
-.signup-btn:hover {
-  opacity: 0.9;
+  display: inline-block;
 }
 
 /* Hero Section */
@@ -101,7 +101,7 @@ nav a:hover {
 
 .badge {
   display: inline-block;
-  color: #a855f7;
+  color: #a855f7 !important;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -109,19 +109,19 @@ nav a:hover {
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: 800;
   line-height: 1.25;
-  color: #ffffff;
+  color: #ffffff !important;
   margin-bottom: 1rem;
 }
 
 .hero h1 span {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .hero p {
-  color: #9ca3af;
+  color: #9ca3af !important;
   font-size: 1.05rem;
   margin-bottom: 2rem;
 }
@@ -134,33 +134,28 @@ nav a:hover {
   flex-wrap: wrap;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #a855f7, #6366f1);
+.btn-primary, 
+.btn-primary:visited {
+  background: linear-gradient(135deg, #a855f7, #6366f1) !important;
   color: #ffffff !important;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
+  display: inline-block;
 }
 
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.btn-secondary {
-  background-color: #1f2937;
+.btn-secondary, 
+.btn-secondary:visited {
+  background-color: #1f2937 !important;
   color: #e5e7eb !important;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-weight: 600;
   border: 1px solid #374151;
+  display: inline-block;
 }
 
-.btn-secondary:hover {
-  background-color: #374151;
-  color: #ffffff !important;
-}
-
-/* Mobile Responsive Layout */
+/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -171,4 +166,5 @@ nav a:hover {
     gap: 0.8rem;
   }
     }
+  
 
