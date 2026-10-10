@@ -3,203 +3,401 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard | TRADX</title>
-  <link rel="stylesheet" href="CSS/style.css?v=3">
+  <title>TradX Marketing — Dashboard</title>
+  <link rel="stylesheet" href="CSS/style.css?v=12">
+  <!-- Lightweight Charts CDN for Live Candlestick Trading Chart -->
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 </head>
-<body>
+<body class="tradx-dashboard-body">
 
-<header class="navbar">
-  <a href="index.html" class="logo">TRADX<span>.</span></a>
+<div class="app-layout">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="trading-tools.html">Trading Tools</a>
-    <a href="dashboard.html" class="active-nav">Admin Dashboard</a>
-  </nav>
-
-  <!-- User Profile Section -->
-  <div class="user-profile">
-    <div class="user-avatar">AD</div>
-    <div class="user-info">
-      <span class="user-name">Admin Account</span>
-      <span class="user-role">PRO TRADER</span>
-    </div>
-  </div>
-</header>
-
-<main class="dashboard-container">
-  
-  <!-- Dashboard Title -->
-  <div class="dashboard-header">
-    <div>
-      <div class="badge">• ADMIN DASHBOARD</div>
-      <h1>Account Overview & AI Insights</h1>
-      <p>Real-time trading performance, active margin, and AI-driven market analysis.</p>
-    </div>
-    <div class="dashboard-actions">
-      <a href="#" class="btn-primary">+ New Trade</a>
-      <a href="#" class="btn-secondary">Export Analytics</a>
-    </div>
-  </div>
-
-  <!-- Key Metrics Grid -->
-  <div class="stats-grid">
-    <div class="stat-card">
-      <span class="stat-title">Total Account Balance</span>
-      <div class="stat-value">$124,580.00</div>
-      <span class="stat-change positive">+12.4% this month</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-title">Net Profit / Loss</span>
-      <div class="stat-value">+$18,340.50</div>
-      <span class="stat-change positive">+8.2% vs last week</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-title">Win Rate</span>
-      <div class="stat-value">68.5%</div>
-      <span class="stat-change neutral">42 total trades</span>
-    </div>
-
-    <div class="stat-card">
-      <span class="stat-title">Active Margin</span>
-      <div class="stat-value">$32,100.00</div>
-      <span class="stat-change info">5 Open Positions</span>
-    </div>
-  </div>
-
-  <!-- TRADX AI Trading Analysis Widget -->
-  <section class="ai-analysis-card">
-    <div class="ai-header">
-      <div class="ai-title">
-        <span class="ai-sparkle">✨</span>
-        <h2>TRADX AI Trading Analyst</h2>
-      </div>
-      <span class="badge-ai">AI Model v4.2 Active</span>
-    </div>
-    <p class="ai-subtitle">Select an asset to generate real-time AI technical analysis, confidence scores, and signal targets.</p>
-
-    <div class="ai-controls">
-      <select id="assetSelect" class="ai-select">
-        <option value="BTC/USD">BTC/USD — Bitcoin</option>
-        <option value="ETH/USD">ETH/USD — Ethereum</option>
-        <option value="EUR/USD">EUR/USD — Forex</option>
-        <option value="NVDA">NVDA — NVIDIA Corp</option>
-        <option value="TSLA">TSLA — Tesla Inc</option>
-      </select>
-      <button class="btn-ai" onclick="runAiAnalysis()">Run AI Analysis ⚡</button>
-    </div>
-
-    <!-- AI Results Output -->
-    <div class="ai-output-grid">
-      <div class="ai-box">
-        <span class="ai-box-title">Market Sentiment</span>
-        <div class="ai-box-value positive" id="aiSentiment">Bullish (84%)</div>
-        <p id="aiSentimentDesc">Strong upward momentum detected across 4-hour indicators.</p>
-      </div>
-
-      <div class="ai-box">
-        <span class="ai-box-title">Confidence Score</span>
-        <div class="ai-box-value info" id="aiConfidence">High (89/100)</div>
-        <p id="aiConfidenceDesc">Based on pattern breakout & high volume influx.</p>
-      </div>
-
-      <div class="ai-box">
-        <span class="ai-box-title">AI Signal Recommendation</span>
-        <div class="ai-box-value positive" id="aiAction">STRONG BUY</div>
-        <p id="aiActionDesc">Suggested Entry: Market | Target: +4.5% | Stop-Loss: -1.2%</p>
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="logo-icon">X</div>
+      <div class="brand-text">
+        <span class="brand-name">TradX</span>
+        <span class="brand-sub">MARKETING</span>
       </div>
     </div>
-  </section>
 
-  <!-- Active Trades Table -->
-  <div class="table-container">
-    <h2>Active & Recent Positions</h2>
-    <table class="trades-table">
-      <thead>
-        <tr>
-          <th>Asset</th>
-          <th>Type</th>
-          <th>Entry Price</th>
-          <th>Current Price</th>
-          <th>P&L</th>
-          <th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>BTC/USD</strong></td>
-          <td><span class="type-tag buy">BUY</span></td>
-          <td>$64,250.00</td>
-          <td>$67,410.00</td>
-          <td class="positive">+$3,160.00</td>
-          <td><span class="status-badge open">Open</span></td>
-        </tr>
-        <tr>
-          <td><strong>ETH/USD</strong></td>
-          <td><span class="type-tag buy">BUY</span></td>
-          <td>$3,450.00</td>
-          <td>$3,580.00</td>
-          <td class="positive">+$130.00</td>
-          <td><span class="status-badge open">Open</span></td>
-        </tr>
-        <tr>
-          <td><strong>EUR/USD</strong></td>
-          <td><span class="type-tag sell">SELL</span></td>
-          <td>1.0890</td>
-          <td>1.0845</td>
-          <td class="positive">+$450.00</td>
-          <td><span class="status-badge closed">Closed</span></td>
-        </tr>
-        <tr>
-          <td><strong>NVDA</strong></td>
-          <td><span class="type-tag buy">BUY</span></td>
-          <td>$128.00</td>
-          <td>$134.50</td>
-          <td class="positive">+$650.00</td>
-          <td><span class="status-badge open">Open</span></td>
-        </tr>
-        <tr>
-          <td><strong>TSLA</strong></td>
-          <td><span class="type-tag sell">SELL</span></td>
-          <td>$228.00</td>
-          <td>$231.50</td>
-          <td class="negative">-$350.00</td>
-          <td><span class="status-badge closed">Closed</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</main>
+    <nav class="sidebar-menu">
+      <a href="#" class="nav-item active"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="#" class="nav-item"><span class="nav-icon">📊</span> Trading</a>
+      <a href="#" class="nav-item"><span class="nav-icon">⚙️</span> Analysis AI <span class="ai-badge-sm">AI</span></a>
+      <a href="#" class="nav-item"><span class="nav-icon">➕</span> Deposit</a>
+      <a href="#" class="nav-item"><span class="nav-icon">💸</span> Withdraw</a>
+      <a href="#" class="nav-item"><span class="nav-icon">👤</span> Account Admin</a>
+      <a href="#" class="nav-item"><span class="nav-icon">🕒</span> History</a>
+      <a href="#" class="nav-item"><span class="nav-icon">🛠️</span> Settings</a>
+    </nav>
 
-<!-- Interactive AI Simulation Script -->
+    <div class="sidebar-widgets">
+      <div class="sidebar-card real-card">
+        <div class="card-top">
+          <span class="shield-icon">🛡️</span>
+          <div class="card-title-group">
+            <span class="card-label">Real Account</span>
+            <span class="status-pill verified">✔ Verified</span>
+          </div>
+        </div>
+        <div class="card-amount">$1,250.00</div>
+        <span class="card-subtext">Available Balance</span>
+      </div>
+
+      <div class="sidebar-card demo-card">
+        <div class="card-top">
+          <span class="demo-icon">💼</span>
+          <div class="card-title-group">
+            <span class="card-label">Demo Account</span>
+          </div>
+        </div>
+        <div class="card-amount">$10,000.00</div>
+        <span class="card-subtext">Virtual Balance</span>
+      </div>
+
+      <div class="sidebar-card email-card">
+        <div class="email-header">
+          <span class="check-circle">✔</span>
+          <div class="email-info">
+            <span class="email-title">Gmail Verified</span>
+            <span class="email-address">allkmtc@gmail.com</span>
+          </div>
+        </div>
+        <button class="btn-email-view">✉ View Email</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT AREA -->
+  <main class="main-wrapper">
+
+    <!-- TOP HEADER BAR -->
+    <header class="topbar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="Search markets, assets, or symbols...">
+      </div>
+
+      <div class="topbar-right">
+        <button class="icon-btn notification-btn">
+          🔔 <span class="notif-badge">2</span>
+        </button>
+
+        <div class="user-gmail-pill">
+          <span class="gmail-icon">M</span>
+          <div class="gmail-details">
+            <span class="gmail-text">allkmtc@gmail.com</span>
+            <span class="status-verified-text">✔ Verified</span>
+          </div>
+        </div>
+
+        <div class="user-profile-menu">
+          <div class="avatar-circle">AK</div>
+          <div class="profile-meta">
+            <span class="user-fullname">All Kmtc</span>
+            <span class="user-title">Trader</span>
+          </div>
+          <span class="chevron">▼</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- TOP METRICS & ACTION BUTTONS -->
+    <section class="metrics-row">
+      <div class="metric-card real-balance-metric">
+        <div class="metric-icon-box green">🛡️</div>
+        <div class="metric-body">
+          <span class="metric-label"><span class="real-highlight">Real</span> Balance</span>
+          <div class="metric-value">$1,250.00</div>
+          <span class="metric-change green">▲ +12.5% today</span>
+        </div>
+      </div>
+
+      <div class="metric-card demo-balance-metric">
+        <div class="metric-icon-box blue">💼</div>
+        <div class="metric-body">
+          <span class="metric-label">Demo Balance</span>
+          <div class="metric-value">$10,000.00</div>
+          <span class="metric-change blue">Practice Account</span>
+        </div>
+      </div>
+
+      <div class="action-buttons-group">
+        <button class="btn-dashboard-action deposit-btn">➕ Deposit</button>
+        <button class="btn-dashboard-action withdraw-btn">💸 Withdraw</button>
+        <button class="btn-dashboard-action admin-btn">⚙ Account Admin</button>
+      </div>
+    </section>
+
+    <!-- MIDDLE DASHBOARD GRID (CHART & ORDER FORM) -->
+    <div class="dashboard-grid">
+
+      <!-- CHART PANEL -->
+      <section class="panel chart-panel">
+        <div class="chart-header">
+          <div class="symbol-info">
+            <span class="crypto-icon">₿</span>
+            <div>
+              <div class="symbol-name">BTC/USDT <span class="price-large">$67,432.21</span></div>
+              <div class="symbol-sub">Bitcoin / TetherUS <span class="green-text">+$1,245.32 (+1.88%)</span></div>
+            </div>
+          </div>
+
+          <div class="chart-controls">
+            <div class="timeframes">
+              <button class="tf-btn">1m</button>
+              <button class="tf-btn">5m</button>
+              <button class="tf-btn active">15m</button>
+              <button class="tf-btn">30m</button>
+              <button class="tf-btn">1h</button>
+              <button class="tf-btn">4h</button>
+              <button class="tf-btn">1D</button>
+            </div>
+            <button class="ctrl-icon-btn">📈 Indicators</button>
+            <button class="ctrl-icon-btn">⛶</button>
+          </div>
+        </div>
+
+        <!-- Real Dynamic Candlestick Chart Area -->
+        <div id="tvChart" class="tradingview-container"></div>
+      </section>
+
+      <!-- ORDER EXECUTION FORM -->
+      <section class="panel order-panel">
+        <div class="buy-sell-toggle">
+          <button id="buyTabBtn" class="toggle-btn buy-active" onclick="switchOrderType('buy')">Buy</button>
+          <button id="sellTabBtn" class="toggle-btn" onclick="switchOrderType('sell')">Sell</button>
+        </div>
+
+        <form class="order-form" onsubmit="event.preventDefault();">
+          <div class="form-item">
+            <label>Asset</label>
+            <select class="custom-select">
+              <option value="BTC/USDT">₿ BTC/USDT</option>
+              <option value="ETH/USDT">Ξ ETH/USDT</option>
+              <option value="SOL/USDT">◎ SOL/USDT</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label>Order Type</label>
+            <select class="custom-select">
+              <option value="market">Market</option>
+              <option value="limit">Limit</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label>Amount (USDT)</label>
+            <input type="number" id="tradeAmount" class="custom-input" value="100">
+          </div>
+
+          <div class="percentage-buttons">
+            <button type="button" onclick="setPercent(25)">25%</button>
+            <button type="button" onclick="setPercent(50)">50%</button>
+            <button type="button" onclick="setPercent(75)">75%</button>
+            <button type="button" onclick="setPercent(100)">100%</button>
+          </div>
+
+          <div class="return-info">
+            <span>Est. Return</span>
+            <span class="green-text" id="estReturn">+0.0023 BTC</span>
+          </div>
+
+          <button id="executeOrderBtn" class="btn-execute-order buy-btn">Buy BTC</button>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- LOWER DASHBOARD GRID (MARKET WATCH, POSITIONS, AI & FEED) -->
+    <div class="lower-grid">
+
+      <!-- MARKET WATCH -->
+      <section class="panel lower-panel">
+        <div class="panel-header">
+          <h3>Market Watch</h3>
+          <div class="category-pills">
+            <button class="cat-pill">Forex</button>
+            <button class="cat-pill active">Crypto</button>
+            <button class="cat-pill">Stocks</button>
+            <button class="cat-pill">Indices</button>
+          </div>
+        </div>
+
+        <table class="market-table">
+          <thead>
+            <tr><th>Symbol</th><th>Price</th><th>Change</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>₿ BTC/USDT</td><td>67,432.21</td><td class="green-text">+1.88%</td></tr>
+            <tr><td>Ξ ETH/USDT</td><td>3,248.76</td><td class="green-text">+2.15%</td></tr>
+            <tr><td>◎ SOL/USDT</td><td>156.32</td><td class="green-text">+3.42%</td></tr>
+            <tr><td>🟡 BNB/USDT</td><td>588.44</td><td class="green-text">+1.12%</td></tr>
+            <tr><td>✖ XRP/USDT</td><td>0.5421</td><td class="green-text">+0.87%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- OPEN POSITIONS & RECENT TRADES -->
+      <section class="panel lower-panel">
+        <div class="panel-header">
+          <h3>Open Positions</h3>
+          <a href="#" class="link-blue">View All</a>
+        </div>
+
+        <table class="mini-table">
+          <thead>
+            <tr><th>Symbol</th><th>Type</th><th>Amount</th><th>P/L</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>₿ BTC/USDT</td><td><span class="tag-buy">Buy</span></td><td>0.01</td><td class="green-text">+$12.34</td></tr>
+            <tr><td>Ξ ETH/USDT</td><td><span class="tag-buy">Buy</span></td><td>0.05</td><td class="green-text">+$8.21</td></tr>
+            <tr><td>◎ SOL/USDT</td><td><span class="tag-sell">Sell</span></td><td>0.10</td><td class="red-text">-$4.12</td></tr>
+          </tbody>
+        </table>
+
+        <div class="panel-header" style="margin-top: 1.2rem;">
+          <h3>Recent Trades</h3>
+          <a href="#" class="link-blue">View All</a>
+        </div>
+
+        <table class="mini-table">
+          <thead>
+            <tr><th>Symbol</th><th>Type</th><th>Price</th><th>Time</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>₿ BTC/USDT</td><td><span class="tag-buy">Buy</span></td><td>67,432.21</td><td>16:45</td></tr>
+            <tr><td>Ξ ETH/USDT</td><td><span class="tag-sell">Sell</span></td><td>3,248.76</td><td>16:32</td></tr>
+            <tr><td>◎ SOL/USDT</td><td><span class="tag-buy">Buy</span></td><td>156.32</td><td>16:21</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- AI ANALYSIS CARD -->
+      <section class="panel lower-panel ai-card-panel">
+        <div class="panel-header">
+          <h3>AI Analysis <span class="ai-badge-sm">AI</span></h3>
+        </div>
+
+        <div class="ai-sentiment-box">
+          <div class="sentiment-icon">📈</div>
+          <div>
+            <span class="sentiment-label">Market Sentiment</span>
+            <div class="sentiment-value green-text">Bullish</div>
+          </div>
+        </div>
+
+        <p class="ai-summary">
+          Based on current market data, the trend is bullish for BTC and ETH. Consider long positions with proper risk management.
+        </p>
+
+        <div class="key-levels">
+          <span class="levels-title">Key Levels</span>
+          <div class="level-item"><span>Resistance:</span> <span class="green-text">68,000.00</span></div>
+          <div class="level-item"><span>Support:</span> <span class="blue-text">64,500.00</span></div>
+        </div>
+
+        <button class="btn-full-analysis">View Full Analysis</button>
+      </section>
+
+      <!-- LIVE MARKET FEED -->
+      <section class="panel lower-panel">
+        <div class="panel-header">
+          <h3>Live Market Feed</h3>
+          <span class="status-live">● Live</span>
+        </div>
+
+        <div class="feed-list">
+          <div class="feed-item">
+            <span class="feed-symbol">₿ BTC/USDT</span>
+            <span class="feed-price">67,432.21</span>
+            <span class="feed-change green-text">+1.88% <br><small>2m ago</small></span>
+          </div>
+          <div class="feed-item">
+            <span class="feed-symbol">Ξ ETH/USDT</span>
+            <span class="feed-price">3,248.76</span>
+            <span class="feed-change green-text">+2.15% <br><small>3m ago</small></span>
+          </div>
+          <div class="feed-item">
+            <span class="feed-symbol">◎ SOL/USDT</span>
+            <span class="feed-price">156.32</span>
+            <span class="feed-change green-text">+3.42% <br><small>4m ago</small></span>
+          </div>
+          <div class="feed-item">
+            <span class="feed-symbol">✖ XRP/USDT</span>
+            <span class="feed-price">0.5421</span>
+            <span class="feed-change green-text">+0.87% <br><small>6m ago</small></span>
+          </div>
+        </div>
+
+        <div class="system-status">
+          <span class="dot-green">●</span> Platform Online <span class="sub-status">All systems operational</span>
+        </div>
+      </section>
+
+    </div>
+
+  </main>
+</div>
+
+<!-- Interactive Chart & Order Script -->
 <script>
-  const aiData = {
-    "BTC/USD": { sentiment: "Bullish (84%)", sentClass: "positive", confidence: "High (89/100)", action: "STRONG BUY", actClass: "positive", desc: "Breakout above $66,000 resistance with heavy volume.", target: "Target: $71,200 | Stop: $64,800" },
-    "ETH/USD": { sentiment: "Bullish (76%)", sentClass: "positive", confidence: "Moderate (74/100)", action: "BUY / LONG", actClass: "positive", desc: "RSI shows bullish divergence on 1D timeframe.", target: "Target: $3,800 | Stop: $3,350" },
-    "EUR/USD": { sentiment: "Bearish (68%)", sentClass: "negative", confidence: "Moderate (71/100)", action: "SELL / SHORT", actClass: "negative", desc: "Rejection at key EMA level with macro dollar strength.", target: "Target: 1.0780 | Stop: 1.0895" },
-    "NVDA": { sentiment: "Very Bullish (91%)", sentClass: "positive", confidence: "Very High (95/100)", action: "STRONG BUY", actClass: "positive", desc: "Earnings beat expectations, tech momentum expanding.", target: "Target: $145.00 | Stop: $128.00" },
-    "TSLA": { sentiment: "Neutral / Bearish (52%)", sentClass: "negative", confidence: "Low (58/100)", action: "HOLD / WAIT", actClass: "neutral", desc: "Consolidating in tight range near major support level.", target: "Target: Neutral | Wait for breakout" }
-  };
+  // Render High-Tech Candlestick Chart
+  const chartContainer = document.getElementById('tvChart');
+  const chart = LightweightCharts.createChart(chartContainer, {
+    layout: { backgroundColor: '#0d1322', textColor: '#8e9baa' },
+    grid: { vertLines: { color: '#182238' }, horzLines: { color: '#182238' } },
+    crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
+    rightPriceScale: { borderColor: '#182238' },
+    timeScale: { borderColor: '#182238' },
+  });
 
-  function runAiAnalysis() {
-    const selected = document.getElementById("assetSelect").value;
-    const data = aiData[selected];
+  const candleSeries = chart.addCandlestickSeries({
+    upColor: '#10b981', downColor: '#ef4444',
+    borderDownColor: '#ef4444', borderUpColor: '#10b981',
+    wickDownColor: '#ef4444', wickUpColor: '#10b981',
+  });
 
-    document.getElementById("aiSentiment").innerText = data.sentiment;
-    document.getElementById("aiSentiment").className = `ai-box-value ${data.sentClass}`;
-    
-    document.getElementById("aiConfidence").innerText = data.confidence;
-    
-    document.getElementById("aiAction").innerText = data.action;
-    document.getElementById("aiAction").className = `ai-box-value ${data.actClass}`;
-    
-    document.getElementById("aiSentimentDesc").innerText = data.desc;
-    document.getElementById("aiActionDesc").innerText = data.target;
+  candleSeries.setData([
+    { time: '2026-10-10 08:00', open: 65800, high: 66200, low: 65500, close: 66100 },
+    { time: '2026-10-10 10:00', open: 66100, high: 66800, low: 66000, close: 66500 },
+    { time: '2026-10-10 12:00', open: 66500, high: 66700, low: 66200, close: 66400 },
+    { time: '2026-10-10 14:00', open: 66400, high: 67200, low: 66300, close: 67000 },
+    { time: '2026-10-10 16:00', open: 67000, high: 67100, low: 66600, close: 66800 },
+    { time: '2026-10-10 18:00', open: 66800, high: 67600, low: 66700, close: 67432.21 },
+  ]);
+
+  window.addEventListener('resize', () => {
+    chart.applyOptions({ width: chartContainer.clientWidth });
+  });
+
+  // Switch Order Form Buttons (Buy vs Sell)
+  function switchOrderType(type) {
+    const buyBtn = document.getElementById('buyTabBtn');
+    const sellBtn = document.getElementById('sellTabBtn');
+    const execBtn = document.getElementById('executeOrderBtn');
+
+    if (type === 'buy') {
+      buyBtn.className = 'toggle-btn buy-active';
+      sellBtn.className = 'toggle-btn';
+      execBtn.className = 'btn-execute-order buy-btn';
+      execBtn.innerText = 'Buy BTC';
+    } else {
+      sellBtn.className = 'toggle-btn sell-active';
+      buyBtn.className = 'toggle-btn';
+      execBtn.className = 'btn-execute-order sell-btn';
+      execBtn.innerText = 'Sell BTC';
+    }
+  }
+
+  function setPercent(percent) {
+    document.getElementById('tradeAmount').value = (1250 * (percent / 100)).toFixed(2);
   }
 </script>
 
 </body>
-  </html>
-
+          </html>
+          
